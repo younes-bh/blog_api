@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # Django rest framework
+    'rest_framework',
+
     # third party
     'crispy_forms',
     'markdown_deux',
