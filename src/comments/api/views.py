@@ -15,14 +15,15 @@ from rest_framework.permissions import (
     IsAuthenticated,
     IsAuthenticatedOrReadOnly,
     )
+from posts.api.permissions import IsOwnerOrReadOnly
+from posts.api.paginations import PostLimitOffsetPagination, PostPageNumberPagination
+
 from comments.models import Comment
 from .serializers import (
     CommentListSerializer,
     CommentDetailSerializer,
     create_comment_serializer,
     )
-from posts.api.permissions import IsOwnerOrReadOnly
-from posts.api.paginations import PostLimitOffsetPagination, PostPageNumberPagination
 
 
 

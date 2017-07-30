@@ -16,13 +16,17 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from .settings import MEDIA_ROOT, STATIC_ROOT
+from rest_framework_jwt.views import obtain_jwt_token
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': MEDIA_ROOT}),
     url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': STATIC_ROOT}),
+    url(r'^api/auth/token/', obtain_jwt_token), # to undestand see http://getblimp.github.io/django-rest-framework-jwt/
     url(r'^api/posts/', include('posts.api.urls', namespace='posts-api')),
-    url(r'^api/comments/', include('comments.api.urls', namespace='comments-api'))
+    url(r'^api/comments/', include('comments.api.urls', namespace='comments-api')),
+    url(r'^api/accounts/', include('accounts.api.urls', namespace='accounts-api')),
 
 ]
