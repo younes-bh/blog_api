@@ -23,6 +23,18 @@ from .serializers import (
 from .permissions import IsOwnerOrReadOnly
 from .paginations import PostLimitOffsetPagination, PostPageNumberPagination
 
+
+
+
+class PostCreateAPIView(CreateAPIView):
+    queryset = Post.objects.all()
+    serializer_class = PostCreateUpdateSerializer
+    permission_classes = [IsAuthenticated]
+
+    def perform_create(self, serializer):
+        serializer.save(user = self.request.user)
+
+
 class PostListAPIView(ListAPIView):
     #queryset = Post.objects.all()
     serializer_class = PostListSerializer
@@ -69,10 +81,3 @@ class PostDeleteAPIView(DestroyAPIView):
     lookup_field = "slug"
     #lookup_url_kwarg = "slug"
 
-class PostCreateAPIView(CreateAPIView):
-    queryset = Post.objects.all()
-    serializer_class = PostCreateUpdateSerializer
-    permission_classes = [IsAuthenticated]
-
-    def perform_create(self, serializer):
-        serializer.save(user = self.request.user)
