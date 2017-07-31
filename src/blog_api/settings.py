@@ -154,8 +154,10 @@ REST_FRAMEWORK = {
     #     'rest_framework.parsers.JSONParser',
     # ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.SessionAuthentication',
+        # see http://www.django-rest-framework.org/api-guide/authentication/
+        # 'rest_framework.authentication.SessionAuthentication',
         # 'rest_framework.authentication.BasicAuthentication',
+        # 'rest_framework.authentication.TokenAuthentication',
         'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
     ),
     # 'DEFAULT_PERMISSION_CLASSES': (

@@ -7,9 +7,14 @@ from rest_framework.serializers import (
         ValidationError,
         )
 from django.contrib.contenttypes.models import ContentType
-from django.contrib.auth import get_user_model
+from django.contrib.auth import (
+        get_user_model,
+        authenticate,
+        login,
+        logout,
+        )
 from django.db.models import Q
-
+from rest_framework_jwt.settings import api_settings
 User = get_user_model()
 
 
@@ -93,7 +98,16 @@ class UserLoginSerializer(ModelSerializer):
         if user_obj:
             if not user_obj.check_password(password):
                 raise ValidationError("Incorrect credentials, please try again.")
-        data["token"] = "Some random token"
+        # TODO : for more information and to see how to generate a token :
+        # https://getblimp.github.io/django-rest-framework-jwt/
+        # https://ponyfoo.com/articles/json-web-tokens-vs-session-cookies
+        # https://auth0.com/learn/json-web-tokens/
+        jwt_payload_handler = api_settings.JWT_PAYLOAD_HANDLER
+        jwt_encode_handler = api_settings.JWT_ENCODE_HANDLER
+        payload = jwt_payload_handler(user_obj)
+        token = jwt_encode_handler(payload)
+
+        data["token"] = token
 
         return data
 
@@ -106,3 +120,7 @@ class UserDetailSerializer(ModelSerializer):
             'first_name',
             'last_name',
         ]
+
+
+
+
