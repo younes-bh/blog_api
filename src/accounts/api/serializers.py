@@ -56,17 +56,17 @@ class UserCreateSerializer(ModelSerializer):
         username = validated_data.get("username")
         email = validated_data.get("email")
         password = validated_data.get("password")
-        user_obj = User(username = username,
+        user_obj = User.objects.create(username = username,
                         email = email,
                         )
         user_obj.set_password(password)
         user_obj.save()
-        return validated_data
+        return user_obj
 
 class UserLoginSerializer(ModelSerializer):
     token = CharField(allow_blank= True, read_only=True)
-    username = CharField(allow_blank=True, required=False)
-    email = EmailField(label="Email address", allow_blank=True, required=False)
+    username = CharField(allow_blank=True, required=False, write_only=True)
+    email = EmailField(label="Email address", allow_blank=True, required=False, write_only=True)
     class Meta :
         model = User
         fields = [
