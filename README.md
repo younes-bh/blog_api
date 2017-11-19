@@ -3,6 +3,7 @@
 ## this a blog API built using Python, Django and Django REST framework
 
 ### To use it :
+1. Make sure you are using python 2.7
 
 1. Download (clone) the project to your chosen directory
 
