@@ -3,10 +3,8 @@
 ## this a blog API built using Python, Django and Django REST framework
 
 ### To use it :
-<<<<<<< HEAD
+
 1. Make sure you are using python 2.7
-=======
->>>>>>> master
 
 1. Download (clone) the project to your chosen directory
 
