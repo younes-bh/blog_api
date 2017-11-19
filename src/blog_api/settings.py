@@ -42,9 +42,12 @@ INSTALLED_APPS = [
     'rest_framework',
 
     # third party
+<<<<<<< HEAD
     'crispy_forms',
     'markdown_deux',
     'pagedown',
+=======
+>>>>>>> master
 
     # local apps
     'accounts',
@@ -155,7 +158,11 @@ REST_FRAMEWORK = {
     # ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
         # see http://www.django-rest-framework.org/api-guide/authentication/
+<<<<<<< HEAD
         'rest_framework.authentication.SessionAuthentication',
+=======
+        # 'rest_framework.authentication.SessionAuthentication',
+>>>>>>> master
         # 'rest_framework.authentication.BasicAuthentication',
         # 'rest_framework.authentication.TokenAuthentication',
         'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
@@ -163,4 +170,8 @@ REST_FRAMEWORK = {
     # 'DEFAULT_PERMISSION_CLASSES': (
     #     'rest_framework.permissions.AllowAny',
     # ),
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> master

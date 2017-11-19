@@ -60,8 +60,13 @@ class Comment(models.Model):
     def __str__(self):
         return str(self.user.username)
 
+<<<<<<< HEAD
     def get_absolute_url(self):
         return reverse("comments:thread", kwargs={"id": self.id})
+=======
+    # def get_absolute_url(self):
+    #     return reverse("comments:thread", kwargs={"id": self.id})
+>>>>>>> master
 
     def get_delete_url(self):
         return reverse("comments:delete", kwargs={"id": self.id})

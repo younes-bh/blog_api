@@ -11,7 +11,11 @@ def count_words(html_string):
     # """
     word_string = strip_tags(html_string)
     matching_words = re.findall(r'\w+', word_string)
+<<<<<<< HEAD
     count = len(matching_words) #joincfe.com/projects/
+=======
+    count = len(matching_words)
+>>>>>>> master
     return count
 
 

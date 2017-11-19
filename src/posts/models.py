@@ -10,7 +10,11 @@ from django.utils.safestring import mark_safe
 from django.utils.text import slugify
 
 
+<<<<<<< HEAD
 from markdown_deux import markdown
+=======
+from markdown import markdown
+>>>>>>> master
 from comments.models import Comment
 from .utils import get_read_time
 
@@ -51,7 +55,11 @@ class Post(models.Model):
     content = models.TextField()
     draft = models.BooleanField(default=False)
     publish = models.DateField(auto_now=False, auto_now_add=False)
+<<<<<<< HEAD
     read_time =  models.IntegerField(default=0) # models.TimeField(null=True, blank=True) #assume minutes
+=======
+    read_time =  models.IntegerField(default=0) # estimated time to read the post
+>>>>>>> master
     updated = models.DateTimeField(auto_now=True, auto_now_add=False)
     timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)
 
@@ -63,8 +71,13 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+<<<<<<< HEAD
     def get_absolute_url(self):
         return reverse("posts:detail", kwargs={"slug": self.slug})
+=======
+    # def get_absolute_url(self):
+    #     return reverse("posts:detail", kwargs={"slug": self.slug})
+>>>>>>> master
 
     def get_api_url(self):
         return reverse("posts-api:detail", kwargs={"slug": self.slug})
