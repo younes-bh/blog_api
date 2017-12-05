@@ -151,7 +151,7 @@ REST_FRAMEWORK = {
     # ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
         # see http://www.django-rest-framework.org/api-guide/authentication/
-        # 'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
         # 'rest_framework.authentication.BasicAuthentication',
         # 'rest_framework.authentication.TokenAuthentication',
         'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
@@ -160,3 +160,7 @@ REST_FRAMEWORK = {
     #     'rest_framework.permissions.AllowAny',
     # ),
 }
+
+
+POST_LIST_PAGE_SIZE = 5
+COMMENT_LIST_PAGE_SIZE = 5
